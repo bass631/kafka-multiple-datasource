@@ -1,0 +1,59 @@
+logging:
+  level:
+    ru.miltidatabase: ${LOGIN_LEVEL:DEBUG}
+spring:
+  application:
+    name: ${APP_NAME:multiple-datasource}
+  profiles:
+    active: ${ACTIVE_PROFILE:DEV}
+  datasource:
+    hikari:
+      maximum-pool-size: ${DATABASE_CONN_POOL_SIZE:1}
+  datasource-1:
+    url: jdbc:postgresql://${DATABASE_HOST_DS1}/${DATABASE_NAME_DS1}?currentSchema=${DATABASE_SCHEMA_DS1}
+    username: ${DATABASE_USERNAME_DS1}
+    password: ${DATABASE_PASSWORD_DS1}
+    driver-class-name: ${DATABASE_DRIVER_DS1:org.postgresql.Driver}
+  datasource-2:
+    url: jdbc:postgresql://${DATABASE_HOST_DS2}/${DATABASE_NAME_DS2}?currentSchema=${DATABASE_SCHEMA_DS2}
+    username: ${DATABASE_USERNAME_DS2}
+    password: ${DATABASE_PASSWORD_DS2}
+    driver-class-name: ${DATABASE_DRIVER_DS2:org.postgresql.Driver}
+  datasource-3:
+    url: jdbc:postgresql://${DATABASE_HOST_DS3}/${DATABASE_NAME_DS3}?currentSchema=${DATABASE_SCHEMA_DS3}
+    username: ${DATABASE_USERNAME_DS3}
+    password: ${DATABASE_PASSWORD_DS3}
+    driver-class-name: ${DATABASE_DRIVER_DS3:org.postgresql.Driver}
+  datasource-4:
+    url: jdbc:postgresql://${DATABASE_HOST_DS4}/${DATABASE_NAME_DS4}?currentSchema=${DATABASE_SCHEMA_DS4}
+    username: ${DATABASE_USERNAME_DS4}
+    password: ${DATABASE_PASSWORD_DS4}
+    driver-class-name: ${DATABASE_DRIVER_DS4:org.postgresql.Driver}
+  datasource-5:
+    url: jdbc:postgresql://${DATABASE_HOST_DS5}/${DATABASE_NAME_DS5}?currentSchema=${DATABASE_SCHEMA_DS5}
+    username: ${DATABASE_USERNAME_DS5}
+    password: ${DATABASE_PASSWORD_DS5}
+    driver-class-name: ${DATABASE_DRIVER_DS5:org.postgresql.Driver}
+kafka:
+  listener:
+    enabled: ${KAFKA_LISTENER_ENABLED:TRUE}
+  consumer:
+    bootstrap-server: ${KAFKA_CONSUMER_BOOTSTRAP_SERVER}
+    group-id: ${KAFKA_CONSUMER_GROUP_ID}
+    topic: ${KAFKA_CONSUMER_TOPIC}
+  producer:
+    bootstrap-server: ${KAFKA_PRODUCER_BOOTSTRAP_SERVER}
+    topic: ${KAFKA_PRODUCER_TOPIC}
+  ssl:
+    consumer:
+      enabled: ${CONSUMER_KAFKA_SSL_ENABLED}
+      trustStorePath: ${CONSUMER_KAFKA_TRUST_STORE_LOCATION}
+      trustStorePassword: ${CONSUMER_KAFKA_TRUST_STORE_PASSWORD}
+      keyStorePath: ${CONSUMER_KAFKA_KEY_STORE_LOCATION}
+      keyStorePassword: ${CONSUMER_KAFKA_KEY_STORE_PASSWORD}
+    producer:
+      enabled: ${PRODUCER_KAFKA_SSL_ENABLED}
+      trustStorePath: ${PRODUCER_KAFKA_TRUST_STORE_LOCATION}
+      trustStorePassword: ${PRODUCER_KAFKA_TRUST_STORE_PASSWORD}
+      keyStorePath: ${PRODUCER_KAFKA_KEY_STORE_LOCATION}
+      keyStorePassword: ${PRODUCER_KAFKA_KEY_STORE_PASSWORD}

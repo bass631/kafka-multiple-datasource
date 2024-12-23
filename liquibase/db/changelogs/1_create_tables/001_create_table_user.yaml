@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 17122024
+      author: bass631
+      comment: "Create table users"
+      changes:
+        - tagDatabase:
+            tag: 17122024
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: user_pkey
+                  autoIncrement: false
+              - column:
+                  name: first_name
+                  type: varchar(16)
+              - column:
+                  name: last_name
+                  type: varchar(38)
+              - column:
+                  name: email
+                  type: varchar(38)
+              - column:
+                  name: create_date
+                  type: timestamp
+                  constraints:
+                    nullable: false
+                  defaultValueDate: current_timestamp
+
+        - createIndex:
+            indexName: email_index
+            tableName: users
+            unique: true
+            columns:
+              - column:
+                  name: email
+                  type: varchar(38)
+      rollback:
+        - dropTable:
+            tableName: users
+        - dropIndex:
+            indexName: email_index

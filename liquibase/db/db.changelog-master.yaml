@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - include:
+      file: db/changelogs/1_create_tables/001_create_table_user.yaml
+  - changeSet:
+      id: 17122024
+      author: bass631
+      comment: "Создание таблицы user"
+      changes:
+        - tagDatabase:
+            tag: 17122024

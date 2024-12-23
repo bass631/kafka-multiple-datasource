@@ -1,0 +1,9 @@
+#liquibase.properties
+driver=org.postgresql.Driver
+classpath=internal/lib/postgresql.jar
+url=jdbc:postgresql://localhost:5432/postgres
+changeLogFile=db/db.changelog-master.yaml
+username=postgres_username
+password=postgres_password
+liquibaseSchemaName=liquibase_public
+defaultSchemaName=public

@@ -1,0 +1,16 @@
+[
+  {
+    "action": "FIND",
+    "id": "34",
+    "firstName": "name1",
+    "lastName": "surname1",
+    "email": "mail1@email.com"
+  },
+  {
+    "action": "CREATE",
+    "id": "46",
+    "firstName": "name2",
+    "lastName": "surname2",
+    "email": "mail2@email.com"
+  }
+]
